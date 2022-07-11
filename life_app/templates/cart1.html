@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>cart</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body id="BG" style="background-image: url('{% static 'img/c.jfif' %}');">
+    <div class="header">
+            <div class="innerhedder">
+                <div class="logo">
+                    <a href="{% url 'afterlog' %}">Lifestyle Store</a>
+                </div>
+                
+                 <div class="headerlink">
+                    <a href="{% url 'index' %}">Logout</a>
+                </div>
+
+                <div class="headerlink">
+                    <a href="{% url 'delete' %}">Delete All</a>
+                </div>
+                <div class="headerlink">
+                    <a href="{% url 'change' %}">Change password</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <h1 style="color: pink;font-weight: bold;">Welcome {{request.user}}</h1>
+    </div>
+<div class="container">
+		<table class="table ">
+			
+			<tr>
+				<th>Product Name</th>
+				<th>Product cost</th>
+				<th>After Discount</th>
+			</tr>
+
+			{% for i in data %}
+			<tr>
+					<td>{{i.p_name}}</td>
+					<td>{{i.p_cost}}</td>
+					<td>{{i.p_cost2}}</td>
+					<td><button class="btn btn-outline-danger btn-link"><a href="{% url 'payment1' i.id %}">buy</a></button></td>
+
+			</tr>
+			{% endfor %}
+		
+		</table>
+
+	</div>
+</body>
+</html>

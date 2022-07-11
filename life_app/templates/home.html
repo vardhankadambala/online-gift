@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block foo %}
+<div class="card">
+	<div class="card-body">
+<h1 class="text-primary">invalid username or password</h1><br><br>
+<h1 class="text-secondary">Want to try again <a href="{% url 'login' %}">login</a></h1><br><br>
+<h1 class="text-secondary">create new account <a href="{% url 'signup' %}">signup</a></h1><br><br>
+</div>
+</div>
+{% endblock %}

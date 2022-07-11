@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block foo %}
+<center>
+<div class="container mt-8">
+<div class="card col-4 text-center m-auto mt-8">
+<h1 class="card-header" style="font-weight: bolder ;color: blue;" >Login into Life Style Account</h1>
+<div class="card-body">
+<form method="post">
+{% csrf_token %}
+<label style="color: blue;">username:</label>
+<input type="text" name="uname" required="true"><br><br>
+<label style="color: blue;">Password:</label>
+<input type="password" name="pswd" required="true"><br><br>
+<button type="submit" class="btn btn-outline-success">Signup</button>
+</form>
+
+
+</div>
+<div class="card-footer"><h3 style="color: red;">If you are new <a href="{% url 'signup' %}">click here</a> to register</h3></div>
+</div>
+</div>
+</center>
+{% endblock %}
